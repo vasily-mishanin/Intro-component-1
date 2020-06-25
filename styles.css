@@ -164,7 +164,7 @@ input[type="email"].formInvalid::-webkit-input-placeholder {
 /* 0 - RESPONSIVITY */
 @media screen and (max-width: 400px) {
   .inner {
-    background: url(/images/bg-intro-mobile.png);
+    background: url(images/bg-intro-mobile.png);
     background-color: hsl(0, 100%, 74%);
   }
 }
