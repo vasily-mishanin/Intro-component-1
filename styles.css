@@ -161,6 +161,14 @@ input[type="email"].formInvalid::-webkit-input-placeholder {
   color: hsl(228, 45%, 44%);
 }
 
+/* 0 - RESPONSIVITY */
+@media screen and (max-width: 400px) {
+  .inner {
+    background: url(/images/bg-intro-mobile.png);
+    background-color: hsl(0, 100%, 74%);
+  }
+}
+
 /* 1 - RESPONSIVITY */
 @media screen and (max-width: 768px) {
   .component-wrapper {
