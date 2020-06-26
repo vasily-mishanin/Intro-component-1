@@ -150,6 +150,7 @@ input[type="email"].formInvalid::-webkit-input-placeholder {
 
 .init-form footer a {
   color: hsl(0, 100%, 74%);
+  text-decoration: none;
 }
 
 .attribution {
