@@ -1,6 +1,11 @@
 window.onload = init;
 
 function init() {
+  //prevent from autoreload after submit
+  let initForm = document.getElementById("init-form");
+  initForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
   let submitBtn = document.getElementById("btnSubmit");
   submitBtn.addEventListener("click", handleSubmit);
 }
@@ -34,11 +39,21 @@ function handleSubmit() {
     lstNameHasErrorMsg = false;
   }
 
-  if (emailElem.value == "" && !emailElemHasErrorMsg) {
-    throwErrorMessage(emailElem);
-    emailElemHasErrorMsg = true;
+  // EMAIL
+  //if email field is empty
+  if (emailElem.value == "") {
+    if (!emailElemHasWrongEmailMsg && !emailElemHasErrorMsg) {
+      throwErrorMessage(emailElem);
+      emailElemHasErrorMsg = true;
+    }
+
+    //if smth typed but not a valid email
   } else if (emailElem.value !== "" && !emailIsValid(emailElem.value)) {
-    if (!emailElemHasWrongEmailMsg) {
+    // if no error messages on this input
+    if (!emailElemHasWrongEmailMsg && !emailElemHasErrorMsg) {
+      throwErrorMessage(emailElem, "Looks like this is not an email. ");
+      emailElemHasWrongEmailMsg = true;
+    } else if (emailElemHasErrorMsg) {
       removeErrorMessage(emailElem);
       emailElemHasErrorMsg = false;
       throwErrorMessage(emailElem, "Looks like this is not an email. ");
@@ -46,9 +61,14 @@ function handleSubmit() {
     }
   }
 
+  // if email is valid
   if (emailElem.value !== "" && emailIsValid(emailElem.value)) {
-    removeErrorMessage(emailElem);
+    // if there any error messages exist
+    if (emailElemHasWrongEmailMsg || emailElemHasErrorMsg) {
+      removeErrorMessage(emailElem);
+    }
     emailElemHasWrongEmailMsg = false;
+    emailElemHasErrorMsg = false;
   }
 
   if (password.value == "" && !passwordHasErrorMsg) {

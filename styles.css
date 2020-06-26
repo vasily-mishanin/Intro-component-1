@@ -9,7 +9,7 @@
 
 .inner {
   display: flex;
-  background: url(/images/bg-intro-desktop.png);
+  background: url(images/bg-intro-desktop.png);
   background-color: hsl(0, 100%, 74%);
 }
 
@@ -50,7 +50,7 @@
 .cta a {
   display: block;
   position: relative;
-  padding: 10px 50px;
+  padding: 15px 50px;
   background-color: hsl(248, 32%, 49%);
   color: #fff;
   border-radius: 7px;
@@ -80,7 +80,7 @@
 .right-inner-addon input {
   width: 100%;
   display: block;
-  padding: 13px 20px;
+  padding: 15px 20px;
   border: 1px solid hsl(246, 25%, 77%);
   border-radius: 5px;
 }
@@ -110,7 +110,7 @@
 
 /* claim your free ... */
 .btn-submit {
-  padding: 13px 20px;
+  padding: 15px 20px;
   border: none;
   //border: 1px solid hsl(246, 25%, 77%);
   border-radius: 5px;
@@ -159,6 +159,14 @@ input[type="email"].formInvalid::-webkit-input-placeholder {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* 0 - RESPONSIVITY */
+@media screen and (max-width: 400px) {
+  .inner {
+    background: url(images/bg-intro-mobile.png);
+    background-color: hsl(0, 100%, 74%);
+  }
 }
 
 /* 1 - RESPONSIVITY */
@@ -280,21 +288,22 @@ input[type="email"].formInvalid::-webkit-input-placeholder {
 /* 4 - RESPONSIVITY */
 @media (min-width: 1331px) and (max-width: 1450px) {
   .component-wrapper {
+    padding: 0;
   }
 
   .inner {
-    padding-bottom: 80px;
+    padding: 0px 0 100px 0;
   }
 
   .description {
     width: 50%;
-    padding: 230px 20px 20px 200px;
+    padding: 240px 20px 20px 200px;
   }
 
   .description-title {
-    margin-bottom: 10px;
-    font-size: 2.6rem;
+    font-size: 3.2rem;
     font-weight: 700;
+    line-height: 1.2;
     margin-bottom: 20px;
   }
 
